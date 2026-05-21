@@ -810,7 +810,7 @@ body > footer .copyrights {
 
 .custom-page-content .page-header.color-1 {
   background-color: #000000;
-  background-image: url(../images/sp_main_bg.png);
+  background-image: url(../images/BIGDRAGON.png);
   background-size: cover;
   -webkit-background-size: cover;
   background-attachment: scroll;
@@ -840,9 +840,9 @@ body > footer .copyrights {
 .start-page-content .page-header {
   position: relative;
   background-color: #000000;
-  padding: 50px;
-  margin-bottom: 25px;
-  background-image: url(../images/sp_main_bg.png);
+  padding: 100px;
+  margin-bottom: 50px;
+  background-image: url(../images/BIGDRAGON.png);
   background-size: cover;
   -webkit-background-size: cover;
   background-attachment: scroll;
@@ -881,7 +881,7 @@ body > footer .copyrights {
 }
 
 .start-page-content .page-header .title-block h1 {
-  color: #fff;
+  color: #ffffff;
   font-size: 54px;
   font-weight: 700;
   margin: 30px 0 0;
@@ -2612,8 +2612,8 @@ blockquote footer, blockquote small, blockquote .small {
 .rpg-card {
   background: #1a1a1a;
   border: 1px solid #444;
-  border-radius: 10px;
-  padding: 18px;
+  border-radius: 20px;
+  padding: 50px;
   margin-bottom: 18px;
 }
 
@@ -2664,7 +2664,7 @@ blockquote footer, blockquote small, blockquote .small {
 }
 
 .rpg-attribute {
-  margin-bottom: 14px;
+  margin-bottom: 15px;
 }
 
 .rpg-attribute span {
@@ -2700,28 +2700,46 @@ blockquote footer, blockquote small, blockquote .small {
   background: #fff;
   color: #111;
 }
-/* Dragão segurando as abas do menu */
-.dragon-nav {
+/* DRAGÃO ENVOLVENDO O CURRÍCULO */
+.dragon-wrapper {
   position: relative;
-  overflow: visible;
+  overflow: visible !important;
 }
 
-.dragon-tabs {
-  position: absolute;
-  width: 280px;
-  top: -85px;
-  right: -80px;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0.95;
-}
-
-.dragon-nav .site-main-menu {
+/* tudo continua clicável e visível */
+.dragon-wrapper .page-header,
+.dragon-wrapper .page-content {
   position: relative;
   z-index: 2;
 }
 
-.dragon-nav .site-main-menu li a {
-  position: relative;
+/* imagem do dragão */
+.dragon-frame {
+  position: absolute;
+  left: 50%;
+  top: -800px;
+  transform: translateX(-50%);
+  width: calc(100% + 900px);
+  max-width: none;
   z-index: 3;
+  pointer-events: none;
+}
+
+/* opcional: se quiser que ele fique mais "abraçando" o card */
+.start-page-content {
+  position: relative;
+}
+
+/* no celular é melhor esconder ou reduzir */
+@media only screen and (max-width: 991px) {
+  .dragon-frame {
+    width: calc(100% + 180px);
+    top: -10px;
+  }
+}
+
+@media only screen and (max-width: 769px) {
+  .dragon-frame {
+    display: none;
+  }
 }
