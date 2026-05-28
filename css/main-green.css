@@ -31,8 +31,9 @@ body {
   color: var(--cream);
   font-family: 'Inter', Arial, sans-serif;
   background:
-    /* linear-gradient(180deg, rgba(0, 0, 0, 0.077), rgba(0, 0, 0, 0.142)), */
-    url('../images/bigdragon.png') center top / cover fixed no-repeat;
+    linear-gradient(180deg, rgba(0, 0, 0, 0.179), rgba(0, 0, 0, 0.278)),
+    url('../images/bigdragon.png') center top / cover fixed no-repeat,
+    #080504;
   overflow-x: hidden;
 }
 
