@@ -2,9 +2,9 @@
 
 :root {
   --bg: #070504;
-  --panel: rgba(18, 14, 11, .92);
-  --panel-soft: rgba(28, 21, 16, .86);
-  --line: rgba(189, 122, 58, .34);
+  --panel: rgb(18, 14, 11);
+  --panel-soft: rgb(28, 21, 16);
+  --line: rgba(189, 121, 58, 0.833);
   --line-strong: rgba(202, 145, 72, .72);
   --cream: #efe2c7;
   --muted: #b9a78d;
