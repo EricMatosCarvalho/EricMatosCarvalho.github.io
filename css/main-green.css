@@ -13,7 +13,7 @@
   --ember-soft: rgba(185, 54, 37, 0);
   --bronze: #c28a4b;
   --bronze-dark: #6f4528;
-  --shadow: rgba(0, 0, 0, .72);
+  --shadow: rgba(0, 0, 0, 0.349);
   --radius: 22px;
 }
 
@@ -31,9 +31,8 @@ body {
   color: var(--cream);
   font-family: 'Inter', Arial, sans-serif;
   background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.077), rgba(0, 0, 0, 0.142)),
-    url('../images/bigdragon.png') center top / cover fixed no-repeat,
-    #0805042c;
+    /* linear-gradient(180deg, rgba(0, 0, 0, 0.077), rgba(0, 0, 0, 0.142)), */
+    url('../images/bigdragon.png') center top / cover fixed no-repeat;
   overflow-x: hidden;
 }
 
