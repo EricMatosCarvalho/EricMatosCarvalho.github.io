@@ -31,9 +31,9 @@ body {
   color: var(--cream);
   font-family: 'Inter', Arial, sans-serif;
   background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.179), rgba(0, 0, 0, 0.278)),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.503), rgba(0, 0, 0, 0.645)),
     url('../images/bigdragon.png') center top / cover fixed no-repeat,
-    #080504;
+    #080504e3;
   overflow-x: hidden;
 }
 
@@ -44,9 +44,7 @@ body::before {
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(circle at 50% 8%, rgba(206, 48, 28, .28), transparent 34rem),
-    radial-gradient(circle at 15% 28%, rgba(208, 144, 70, .14), transparent 28rem),
-    linear-gradient(90deg, rgba(0, 0, 0, .62), transparent 25%, transparent 75%, rgba(0, 0, 0, .62));
+    linear-gradient(90deg, rgba(0, 0, 0, 0.295), transparent 25%, transparent 75%, rgba(0, 0, 0, 0.305));
 }
 
 body::after {
@@ -575,11 +573,11 @@ h1, h2, h3 {
 }
 
 .project-media.dragon-bg {
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, .16), rgba(0, 0, 0, .70)), url('../images/bigdragon.png');
+  background-image: url('../images/bigdragon.png');
 }
 
 .project-media.wood-bg {
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, .10), rgba(0, 0, 0, .68)), url('../images/dragao-menu.png');
+  background-image: url('../images/dragao-menu.png');
 }
 
 .tags {
