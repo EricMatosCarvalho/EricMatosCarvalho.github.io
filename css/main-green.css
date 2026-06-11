@@ -71,7 +71,9 @@ p {
   line-height: 1.75;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: 'Cinzel', Georgia, serif;
   letter-spacing: .02em;
   margin: 0;
@@ -769,20 +771,20 @@ h1, h2, h3 {
 
   background:
     /* canto superior esquerdo */
-    linear-gradient(90deg, rgba(226, 170, 98, 0.9), rgba(226, 170, 98, 0)) top left / 150px 1px no-repeat,
-    linear-gradient(180deg, rgba(226, 170, 98, 0.9), rgba(226, 170, 98, 0)) top left / 1px 150px no-repeat,
+    linear-gradient(90deg, rgba(226, 170, 98, 0.9), rgba(226, 170, 98, 0)) top left / 115px 1px no-repeat,
+    linear-gradient(180deg, rgba(226, 170, 98, 0.9), rgba(226, 170, 98, 0)) top left / 1px 115px no-repeat,
 
     /* canto superior direito */
-    linear-gradient(270deg, rgba(226, 170, 98, 0.9), rgba(226, 170, 98, 0)) top right / 150px 1px no-repeat,
-    linear-gradient(180deg, rgba(226, 170, 98, 0.9), rgba(226, 170, 98, 0)) top right / 1px 150px no-repeat,
+    linear-gradient(270deg, rgba(226, 170, 98, 0.9), rgba(226, 170, 98, 0)) top right / 115px 1px no-repeat,
+    linear-gradient(180deg, rgba(226, 170, 98, 0.9), rgba(226, 170, 98, 0)) top right / 1px 115px no-repeat,
 
     /* canto inferior esquerdo */
-    linear-gradient(90deg, rgba(226, 170, 98, 0.9), rgba(226, 170, 98, 0)) bottom left / 150px 1px no-repeat,
-    linear-gradient(0deg, rgba(226, 170, 98, 0.9), rgba(226, 170, 98, 0)) bottom left / 1px 150px no-repeat,
+    linear-gradient(90deg, rgba(226, 170, 98, 0.9), rgba(226, 170, 98, 0)) bottom left / 115px 1px no-repeat,
+    linear-gradient(0deg, rgba(226, 170, 98, 0.9), rgba(226, 170, 98, 0)) bottom left / 1px 115px no-repeat,
 
     /* canto inferior direito */
-    linear-gradient(270deg, rgba(226, 170, 98, 0.9), rgba(226, 170, 98, 0)) bottom right / 150px 1px no-repeat,
-    linear-gradient(0deg, rgba(226, 170, 98, 0.9), rgba(226, 170, 98, 0)) bottom right / 1px 150px no-repeat;
+    linear-gradient(270deg, rgba(226, 170, 98, 0.9), rgba(226, 170, 98, 0)) bottom right / 115px 1px no-repeat,
+    linear-gradient(0deg, rgba(226, 170, 98, 0.9), rgba(226, 170, 98, 0)) bottom right / 1px 115px no-repeat;
 }
 
 /* brilho escuro por dentro, parecido com metal velho */
@@ -820,14 +822,12 @@ h1, h2, h3 {
   width: 140px;
   height: 1px;
   margin: 10px auto 0;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(197, 126, 61, 0.75),
-    rgba(185, 54, 37, 0.85),
-    rgba(197, 126, 61, 0.75),
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(197, 126, 61, 0.75),
+      rgba(185, 54, 37, 0.85),
+      rgba(197, 126, 61, 0.75),
+      transparent);
 }
 
 /* deixa os cards com aparência de placa medieval */
@@ -851,8 +851,257 @@ h1, h2, h3 {
 }
 
 /* evita que a moldura cubra textos ou botões */
-.card > *,
-.panel-frame > * {
+.card>*,
+.panel-frame>* {
   position: relative;
   z-index: 4;
 }
+
+/* =====================================================
+   EFEITO DE LIVRO VIRANDO PÁGINA
+   Adicionado para separar Início, Currículo, Serviços,
+   Portfólio e Contato em páginas independentes.
+===================================================== */
+
+.book-stage {
+  position: relative;
+  perspective: 2200px;
+  transform-style: preserve-3d;
+  min-height: calc(100vh - 180px);
+}
+
+.book-page {
+  display: none;
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 220px);
+  margin: 0;
+  padding: clamp(24px, 4vw, 42px);
+  border-radius: 32px;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transform-origin: left center;
+  isolation: isolate;
+  border: 1px solid rgba(190, 119, 45, 0.58);
+  outline: 1px solid rgba(86, 46, 19, 0.75);
+  outline-offset: -7px;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(188, 91, 39, 0.20), transparent 280px),
+    radial-gradient(circle at 90% 100%, rgba(130, 32, 21, 0.16), transparent 260px),
+    linear-gradient(180deg, rgba(31, 25, 20, 0.97), rgba(10, 7, 5, 0.98));
+  box-shadow:
+    0 40px 100px rgba(0, 0, 0, 0.78),
+    inset 0 0 0 1px rgba(255, 223, 168, 0.05),
+    inset 0 0 45px rgba(131, 42, 22, 0.18);
+}
+
+.book-page::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(255, 226, 178, 0.08), transparent 12%, transparent 82%, rgba(0, 0, 0, 0.36)),
+    radial-gradient(ellipse at left center, rgba(255, 222, 170, 0.10), transparent 34%);
+  opacity: 0.7;
+}
+
+.book-page > * {
+  position: relative;
+  z-index: 4;
+}
+
+.book-page.active {
+  display: block;
+  animation: bookPageSettle 260ms ease both;
+}
+
+.book-page.turning-out,
+.book-page.turning-in {
+  display: block;
+  position: absolute;
+  inset: 0;
+}
+
+.book-page.turning-out {
+  z-index: 8;
+}
+
+.book-page.turning-in {
+  z-index: 7;
+}
+
+.book-page.turning-out.flip-forward {
+  transform-origin: left center;
+  animation: bookTurnOutForward 900ms cubic-bezier(.2, .7, .15, 1) both;
+}
+
+.book-page.turning-in.flip-forward {
+  transform-origin: right center;
+  animation: bookTurnInForward 900ms cubic-bezier(.2, .7, .15, 1) both;
+}
+
+.book-page.turning-out.flip-back {
+  transform-origin: right center;
+  animation: bookTurnOutBack 900ms cubic-bezier(.2, .7, .15, 1) both;
+}
+
+.book-page.turning-in.flip-back {
+  transform-origin: left center;
+  animation: bookTurnInBack 900ms cubic-bezier(.2, .7, .15, 1) both;
+}
+
+.main-nav a.active {
+  color: var(--cream);
+  background: rgba(185, 54, 37, .22);
+}
+
+.main-nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 4px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, var(--ember), transparent);
+  box-shadow: 0 0 12px rgba(185, 54, 37, .7);
+}
+
+.hero.book-page,
+.section-block.book-page,
+.contact-section.book-page {
+  margin-top: 0;
+}
+
+.book-page .section-title {
+  margin-top: 0;
+}
+
+.book-page.turning-out::after {
+  animation: pageShadowMove 900ms ease both;
+}
+
+@keyframes bookPageSettle {
+  from {
+    opacity: 0.92;
+    transform: translateY(10px) scale(0.992);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes bookTurnOutForward {
+  0% {
+    opacity: 1;
+    transform: rotateY(0deg) translateX(0);
+    filter: brightness(1);
+  }
+
+  45% {
+    filter: brightness(0.72);
+  }
+
+  100% {
+    opacity: 0;
+    transform: rotateY(-112deg) translateX(-24px);
+    filter: brightness(0.38);
+  }
+}
+
+@keyframes bookTurnInForward {
+  0% {
+    opacity: 0;
+    transform: rotateY(96deg) translateX(24px);
+    filter: brightness(0.42);
+  }
+
+  55% {
+    opacity: 1;
+    filter: brightness(0.78);
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotateY(0deg) translateX(0);
+    filter: brightness(1);
+  }
+}
+
+@keyframes bookTurnOutBack {
+  0% {
+    opacity: 1;
+    transform: rotateY(0deg) translateX(0);
+    filter: brightness(1);
+  }
+
+  45% {
+    filter: brightness(0.72);
+  }
+
+  100% {
+    opacity: 0;
+    transform: rotateY(112deg) translateX(24px);
+    filter: brightness(0.38);
+  }
+}
+
+@keyframes bookTurnInBack {
+  0% {
+    opacity: 0;
+    transform: rotateY(-96deg) translateX(-24px);
+    filter: brightness(0.42);
+  }
+
+  55% {
+    opacity: 1;
+    filter: brightness(0.78);
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotateY(0deg) translateX(0);
+    filter: brightness(1);
+  }
+}
+
+@keyframes pageShadowMove {
+  0% {
+    opacity: 0.22;
+    background: linear-gradient(90deg, rgba(255, 226, 178, 0.08), transparent 18%, rgba(0, 0, 0, 0.20));
+  }
+
+  50% {
+    opacity: 0.86;
+    background: linear-gradient(90deg, rgba(255, 226, 178, 0.02), rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.72));
+  }
+
+  100% {
+    opacity: 0;
+    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.85));
+  }
+}
+
+@media (max-width: 760px) {
+  .book-stage {
+    perspective: 1200px;
+    min-height: auto;
+  }
+
+  .book-page {
+    min-height: auto;
+    padding: 22px;
+    border-radius: 24px;
+  }
+
+  .book-page.turning-out,
+  .book-page.turning-in {
+    inset: 0;
+  }
+}
+

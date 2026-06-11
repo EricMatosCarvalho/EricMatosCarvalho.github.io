@@ -1,40 +1,45 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eric Matos Carvalho | Currículo</title>
-  <meta name="description" content="Currículo profissional de Eric Matos Carvalho com identidade visual inspirada em ficha de personagem RPG." />
+  <meta name="description"
+    content="Currículo profissional de Eric Matos Carvalho com identidade visual inspirada em ficha de personagem RPG." />
   <link rel="stylesheet" href="css/main-green.css" />
-</head>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=fzaBTu1-1QiZQJq2r7NdMYHcGZHShE2zUrVAcwHznL_osDMzt4H0QDKpRUuhnwLAxhPF2XNpZITNB6CFqXttMpf9pVzqLNWTcA9QnU7RwOW3JFd_yzZao-l2iBPmwIbktTBwrtwetjet6goT9Kxm6hngmQuMMlpisWT8TO731afOV6luLD2nEsl-d5GOjW4DRkc7fySjjdhVGuWL7SzDXMTe3tPFw_AMpCGNN4Vq6XJkqkeo9GHFVy-5dtjZ8m5insKUFYRphBCwE65oI8i1FaErMAM2Ws-3dS9Tr9EfsFhZpI9FYaW1qp5lltZUaVeGJ2hBf0UE9DO6aZ7RNpIVUw" charset="UTF-8"></script></head>
+
 <body>
   <a class="skip-link" href="#curriculo">Pular para o currículo</a>
 
-  <header class="site-header" id="inicio">
+  <header class="site-header" id="topo">
     <!-- <img class="dragon-menu" src="images/dragao-menu.png" alt="" aria-hidden="true" /> -->
 
     <div class="nav-shell">
-      <a class="brand" href="#inicio" aria-label="Voltar ao início">
+      <a class="brand book-link" href="#inicio" data-book-target="inicio" aria-label="Voltar ao início">
         <span class="brand-mark">EMC</span>
         <span>Eric Matos Carvalho</span>
       </a>
 
       <nav class="main-nav" aria-label="Navegação principal">
-        <a href="#inicio" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">Início</a>
-        <a href="#curriculo">Currículo</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#portfolio">Portfólio</a>
+        <a href="#inicio" class="book-link active" data-book-target="inicio">Início</a>
+        <a href="#curriculo" class="book-link" data-book-target="curriculo">Currículo</a>
+        <a href="#servicos" class="book-link" data-book-target="servicos">Serviços</a>
+        <a href="#portfolio" class="book-link" data-book-target="portfolio">Portfólio</a>
+        <a href="#contato" class="book-link" data-book-target="contato">Contato</a>
       </nav>
     </div>
-    
+
   </header>
 
-  <main class="page">
-    <section class="hero section-anchor" aria-labelledby="hero-title">
+  <main class="page book-stage">
+    <section class="hero section-anchor book-page active" id="inicio" data-page="inicio" aria-labelledby="hero-title">
       <div class="hero-panel panel-frame">
         <div class="profile-column">
           <div class="profile-emblem" aria-label="Emblema visual do currículo">
-            <img src="images/arco-dragao-gato.png" alt="Emblema circular com dragão e gato, usado como moldura do perfil" />
+            <img src="images/arco-dragao-gato.png"
+              alt="Emblema circular com dragão e gato, usado como moldura do perfil" />
             <!-- <div class="profile-core">
               <span>EMC</span>
               <small>Perfil Profissional</small>
@@ -65,12 +70,14 @@
           <h1 id="hero-title">Eric Matos Carvalho</h1>
           <h2>Desenvolvedor em formação</h2>
           <p class="hero-summary">
-            Apaixonado por tecnologia, criação de qualquer coisa interessante e evolução constante. Estou construindo minha jornada no desenvolvimento com foco em organização, responsividade, boas práticas e projetos que unam identidade visual com funcionalidade real e criar jogos.
+            Apaixonado por tecnologia, criação de qualquer coisa interessante e evolução constante. Estou construindo
+            minha jornada no desenvolvimento com foco em organização, responsividade, boas práticas e projetos que unam
+            identidade visual com funcionalidade real e criar jogos.
           </p>
 
           <div class="hero-actions" aria-label="Ações principais">
             <a class="button primary" href="mailto:micantero.eric@gmail.com">Entrar em contato</a>
-            <a class="button secondary" href="#portfolio">Ver portfólio</a>
+            <a class="button secondary book-link" href="#portfolio" data-book-target="portfolio">Ver portfólio</a>
           </div>
         </div>
 
@@ -95,7 +102,7 @@
       </div>
     </section>
 
-    <section class="section-block section-anchor" id="curriculo" aria-labelledby="curriculo-title">
+    <section class="section-block section-anchor book-page" id="curriculo" data-page="curriculo" aria-labelledby="curriculo-title">
       <div class="section-title">
         <p class="eyebrow">Dados do personagem</p>
         <h2 id="curriculo-title">Currículo</h2>
@@ -106,7 +113,9 @@
         <article class="card">
           <h3>Resumo profissional</h3>
           <p>
-            Desenvolvedor em formação com interesse em desenvolvimento, interfaces responsivas, Git/GitHub e criação de portfólio. Busca oportunidades para aplicar aprendizado em projetos reais, melhorar código e entregar páginas com boa apresentação visual.
+            Desenvolvedor em formação com interesse em desenvolvimento, interfaces responsivas, Git/GitHub e criação de
+            portfólio. Busca oportunidades para aplicar aprendizado em projetos reais, melhorar código e entregar
+            páginas com boa apresentação visual.
           </p>
         </article>
 
@@ -168,7 +177,7 @@
       </div>
     </section>
 
-    <section class="section-block section-anchor" id="servicos" aria-labelledby="servicos-title">
+    <section class="section-block section-anchor book-page" id="servicos" data-page="servicos" aria-labelledby="servicos-title">
       <div class="section-title">
         <p class="eyebrow">O que posso entregar</p>
         <h2 id="servicos-title">Serviços</h2>
@@ -193,7 +202,7 @@
       </div>
     </section>
 
-    <section class="section-block section-anchor" id="portfolio" aria-labelledby="portfolio-title">
+    <section class="section-block section-anchor book-page" id="portfolio" data-page="portfolio" aria-labelledby="portfolio-title">
       <div class="section-title">
         <p class="eyebrow">Projetos em destaque</p>
         <h2 id="portfolio-title">Portfólio</h2>
@@ -218,7 +227,7 @@
       </div>
     </section>
 
-    <section class="section-block contact-section section-anchor" id="contato" aria-labelledby="contato-title">
+    <section class="section-block contact-section section-anchor book-page" id="contato" data-page="contato" aria-labelledby="contato-title">
       <div class="contact-panel panel-frame">
         <div>
           <p class="eyebrow">Convite para nova missão</p>
@@ -227,7 +236,8 @@
         </div>
 
         <address class="contact-list">
-          <a href="mailto:micantero.eric@gmail.com">micantero.eric@gmail.com</a>
+
+          <a href="mailto:micantero.eric@gmail.com"><img src="images/Instagram.png" alt="Ícone de e-mail" /></a>
           <a href="tel:+55999513808">+55 99951-3808</a>
           <span>Brasília, DF</span>
         </address>
@@ -238,5 +248,109 @@
   <footer class="site-footer">
     <p>Disciplina, foco e curiosidade: os verdadeiros atributos de um desenvolvedor.</p>
   </footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const pages = Array.from(document.querySelectorAll(".book-page"));
+      const links = Array.from(document.querySelectorAll(".book-link"));
+      let currentPage = pages.find(function (page) {
+        return page.classList.contains("active");
+      }) || pages[0];
+      let isTurning = false;
+
+      function updateActiveLink(pageName) {
+        links.forEach(function (link) {
+          link.classList.toggle("active", link.dataset.bookTarget === pageName);
+        });
+      }
+
+      function showPageInstantly(pageName) {
+        const targetPage = pages.find(function (page) {
+          return page.dataset.page === pageName;
+        });
+
+        if (!targetPage) {
+          return;
+        }
+
+        pages.forEach(function (page) {
+          page.classList.remove("active", "turning-in", "turning-out", "flip-forward", "flip-back");
+        });
+
+        targetPage.classList.add("active");
+        currentPage = targetPage;
+        updateActiveLink(pageName);
+      }
+
+      function openBookPage(pageName, updateUrl) {
+        if (updateUrl === undefined) {
+          updateUrl = true;
+        }
+
+        const nextPage = pages.find(function (page) {
+          return page.dataset.page === pageName;
+        });
+
+        if (!nextPage || isTurning) {
+          return;
+        }
+
+        if (nextPage === currentPage) {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+          return;
+        }
+
+        isTurning = true;
+
+        const currentIndex = pages.indexOf(currentPage);
+        const nextIndex = pages.indexOf(nextPage);
+        const directionClass = nextIndex > currentIndex ? "flip-forward" : "flip-back";
+
+        pages.forEach(function (page) {
+          if (page !== currentPage && page !== nextPage) {
+            page.classList.remove("active", "turning-in", "turning-out", "flip-forward", "flip-back");
+          }
+        });
+
+        currentPage.classList.add("active", "turning-out", directionClass);
+        nextPage.classList.add("active", "turning-in", directionClass);
+
+        updateActiveLink(pageName);
+
+        window.scrollTo({ top: 0, behavior: "smooth" });
+
+        setTimeout(function () {
+          currentPage.classList.remove("active", "turning-out", "flip-forward", "flip-back");
+          nextPage.classList.remove("turning-in", "flip-forward", "flip-back");
+          nextPage.classList.add("active");
+
+          currentPage = nextPage;
+          isTurning = false;
+
+          if (updateUrl) {
+            history.pushState(null, "", "#" + pageName);
+          }
+        }, 900);
+      }
+
+      links.forEach(function (link) {
+        link.addEventListener("click", function (event) {
+          event.preventDefault();
+          openBookPage(link.dataset.bookTarget);
+        });
+      });
+
+      window.addEventListener("popstate", function () {
+        const pageName = location.hash.replace("#", "") || "inicio";
+        showPageInstantly(pageName);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      const initialPage = location.hash.replace("#", "") || "inicio";
+      showPageInstantly(initialPage);
+      window.scrollTo({ top: 0 });
+    });
+  </script>
+
 </body>
+
 </html>
