@@ -22,7 +22,13 @@
         <span>Eric Matos Carvalho</span>
       </a>
 
-      <nav class="main-nav" aria-label="Navegação principal">
+      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-controls="main-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
         <a href="#inicio" class="book-link active" data-book-target="inicio">Início</a>
         <a href="#curriculo" class="book-link" data-book-target="curriculo">Currículo</a>
         <a href="#servicos" class="book-link" data-book-target="servicos">Serviços</a>
@@ -102,7 +108,8 @@
       </div>
     </section>
 
-    <section class="section-block section-anchor book-page" id="curriculo" data-page="curriculo" aria-labelledby="curriculo-title">
+    <section class="section-block section-anchor book-page" id="curriculo" data-page="curriculo"
+      aria-labelledby="curriculo-title">
       <div class="section-title">
         <p class="eyebrow">Dados do personagem</p>
         <h2 id="curriculo-title">Currículo</h2>
@@ -177,7 +184,8 @@
       </div>
     </section>
 
-    <section class="section-block section-anchor book-page" id="servicos" data-page="servicos" aria-labelledby="servicos-title">
+    <section class="section-block section-anchor book-page" id="servicos" data-page="servicos"
+      aria-labelledby="servicos-title">
       <div class="section-title">
         <p class="eyebrow">O que posso entregar</p>
         <h2 id="servicos-title">Serviços</h2>
@@ -202,7 +210,8 @@
       </div>
     </section>
 
-    <section class="section-block section-anchor book-page" id="portfolio" data-page="portfolio" aria-labelledby="portfolio-title">
+    <section class="section-block section-anchor book-page" id="portfolio" data-page="portfolio"
+      aria-labelledby="portfolio-title">
       <div class="section-title">
         <p class="eyebrow">Projetos em destaque</p>
         <h2 id="portfolio-title">Portfólio</h2>
@@ -227,7 +236,8 @@
       </div>
     </section>
 
-    <section class="section-block contact-section section-anchor book-page" id="contato" data-page="contato" aria-labelledby="contato-title">
+    <section class="section-block contact-section section-anchor book-page" id="contato" data-page="contato"
+      aria-labelledby="contato-title">
       <div class="contact-panel panel-frame">
         <div>
           <p class="eyebrow">Convite para nova missão</p>
@@ -236,14 +246,17 @@
         </div>
 
         <address class="contact-list">
-          <a class="contact-social instagram-contact" href="https://www.instagram.com/eric_m_carvalho/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram de Eric Matos Carvalho">
+          <a class="contact-social instagram-contact" href="https://www.instagram.com/eric_m_carvalho/" target="_blank"
+            rel="noopener noreferrer" aria-label="Abrir Instagram de Eric Matos Carvalho">
             <img class="contact-icon" src="images/Instagram.png" alt="" aria-hidden="true" />
             <span>
               <small>Instagram</small>
               <strong>@eric_m_carvalho</strong>
             </span>
           </a>
-          <a class="contact-social whatsapp-contact" href="https://api.whatsapp.com/send?phone=5561999513808&text=Olá,%20como%20vai!" target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp de Eric Matos Carvalho">
+          <a class="contact-social whatsapp-contact"
+            href="https://api.whatsapp.com/send?phone=5561999513808&text=Olá,%20como%20vai!" target="_blank"
+            rel="noopener noreferrer" aria-label="Abrir WhatsApp de Eric Matos Carvalho">
             <img class="contact-icon" src="images/WhatsApp.png" alt="" aria-hidden="true" />
             <span>
               <small>WhatsApp</small>
@@ -263,6 +276,35 @@
     document.addEventListener("DOMContentLoaded", function () {
       const pages = Array.from(document.querySelectorAll(".book-page"));
       const links = Array.from(document.querySelectorAll(".book-link"));
+      const menuToggle = document.querySelector(".menu-toggle");
+      const mainNav = document.querySelector(".main-nav");
+
+      function closeMobileMenu() {
+        if (!menuToggle || !mainNav) {
+          return;
+        }
+
+        menuToggle.classList.remove("active");
+        mainNav.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Abrir menu");
+      }
+
+      function toggleMobileMenu() {
+        if (!menuToggle || !mainNav) {
+          return;
+        }
+
+        const isOpen = mainNav.classList.toggle("open");
+        menuToggle.classList.toggle("active", isOpen);
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.setAttribute("aria-label", isOpen ? "Fechar menu" : "Abrir menu");
+      }
+
+      if (menuToggle) {
+        menuToggle.addEventListener("click", toggleMobileMenu);
+      }
+
       let currentPage = pages.find(function (page) {
         return page.classList.contains("active");
       }) || pages[0];
@@ -346,8 +388,28 @@
       links.forEach(function (link) {
         link.addEventListener("click", function (event) {
           event.preventDefault();
+          closeMobileMenu();
           openBookPage(link.dataset.bookTarget);
         });
+      });
+
+      document.addEventListener("click", function (event) {
+        if (!mainNav || !menuToggle || !mainNav.classList.contains("open")) {
+          return;
+        }
+
+        const clickedInsideMenu = mainNav.contains(event.target);
+        const clickedToggle = menuToggle.contains(event.target);
+
+        if (!clickedInsideMenu && !clickedToggle) {
+          closeMobileMenu();
+        }
+      });
+
+      window.addEventListener("resize", function () {
+        if (window.innerWidth > 980) {
+          closeMobileMenu();
+        }
       });
 
       window.addEventListener("popstate", function () {
