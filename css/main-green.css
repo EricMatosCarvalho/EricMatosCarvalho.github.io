@@ -1182,6 +1182,16 @@ h3 {
   font-size: 18px;
   opacity: .9;
 }
+.linkedin-contact::after {
+  content: "↗";
+  position: absolute;
+  right: 17px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--bronze);
+  font-size: 18px;
+  opacity: .9;
+}
 
 
 .instagram-contact:hover .contact-icon,
@@ -1194,6 +1204,10 @@ h3 {
 }
 .github-contact:hover .contact-icon,
 .github-contact:focus .contact-icon {
+  transform: translateY(-50%) scale(1.06);
+}
+.linkedin-contact:hover .contact-icon,
+.linkedin-contact:focus .contact-icon {
   transform: translateY(-50%) scale(1.06);
 }
 
