@@ -14,6 +14,7 @@
   <meta property="og:description" content="Estudante de Jogos Digitais em busca de estágio em Processos e Projetos. Conheça minha trajetória, projetos e conhecimentos em tecnologia." />
   <meta property="og:url" content="https://ericmatoscarvalho.github.io/" />
   <link rel="stylesheet" href="css/main-green.css" />
+  <link rel="stylesheet" href="css/v360-responsive.css" />
 </head>
 
 <body>
@@ -50,8 +51,8 @@
       <div class="hero-panel panel-frame">
         <div class="profile-column">
           <div class="profile-emblem" aria-label="Emblema visual do currículo">
-            <img src="images/arco-dragao-gato.png"
-              alt="Emblema circular com dragão e gato, usado como moldura do perfil" />
+            <img src="images/eric-avatar-rpg.webp"
+              alt="Retrato de Eric emoldurado por um dragão ornamental escuro e um gatinho" />
             <!-- <div class="profile-core">
               <span>EMC</span>
               <small>Perfil Profissional</small>
@@ -263,7 +264,9 @@
         </article>
 
         <article class="project-card card">
-          <div class="project-media wood-bg" role="img" aria-label="Arte de fantasia representando estudos de jogos digitais"></div>
+          <div class="project-media">
+            <img src="images/thumb-modelagem3d.svg" alt="Ilustração conceitual de uma malha 3D, não é captura de um jogo concluído" loading="lazy" />
+          </div>
           <div>
             <h3>Jogos digitais e modelagem 3D</h3>
             <p>
@@ -281,19 +284,23 @@
         </article>
 
         <article class="project-card card">
-          <div class="project-media dragon-bg" role="img" aria-label="Ilustração temática para a próxima missão de aprendizado"></div>
+          <div class="project-media">
+            <img src="images/thumb-operacao360.svg" alt="Fluxo ilustrativo registrar, analisar e acompanhar, relativo ao estudo fictício Operação 360" loading="lazy" />
+          </div>
           <div>
             <h3>Operação 360: estudo de processos e projetos</h3>
             <p>
-              <strong>Trilha de estudo planejada.</strong> Exercício com empresa fictícia para aprender
-              mapeamento de processos, Kanban, indicadores e análise simples de dados com Python.
-              O projeto será apresentado como concluído somente depois da execução e validação das atividades.
+              <strong>Material inicial disponível, exercícios em andamento.</strong> Estudo de caso fictício
+              para aprender mapeamento de processos, Kanban, indicadores e análise simples de dados com Python.
+              O código-base e as tarefas estão documentados, mas o estudo não representa uma implantação real.
+              <a href="https://github.com/EricMatosCarvalho/EricMatosCarvalho.github.io/tree/main/operacao360"
+                target="_blank" rel="noopener noreferrer" aria-label="Ver a pasta pública do estudo Operação 360 no GitHub">Ver material didático no GitHub</a>.
             </p>
             <ul class="tags">
               <li>Gestão de projetos (em estudo)</li>
               <li>Processos (em estudo)</li>
               <li>Python (em estudo)</li>
-              <li>Planejado</li>
+              <li>Base didática publicada / atividades em estudo</li>
             </ul>
           </div>
         </article>
@@ -316,6 +323,7 @@
         <address class="contact-list">
           <a class="contact-social email-contact" href="mailto:micantero.eric@gmail.com"
             aria-label="Enviar e-mail para Eric Matos Carvalho">
+            <img class="contact-icon" src="images/icon-email-rpg.webp" alt="" aria-hidden="true" />
             <span>
               <small>E-mail</small>
               <strong>micantero.eric@gmail.com</strong>
@@ -333,7 +341,7 @@
           <a class="contact-social github-contact"
             href="https://github.com/EricMatosCarvalho" target="_blank"
             rel="noopener noreferrer" aria-label="Abrir GitHub de Eric Matos Carvalho">
-            <img class="contact-icon" src="images/GitHub.png" alt="" aria-hidden="true" />
+            <img class="contact-icon" src="images/icon-github-rpg.webp" alt="" aria-hidden="true" />
             <span>
               <small>GitHub</small>
               <strong>EricMatosCarvalho</strong>
@@ -342,7 +350,7 @@
           <a class="contact-social linkedin-contact"
             href="https://www.linkedin.com/in/eric-matos-carvalho-4a732a2aa/" target="_blank"
             rel="noopener noreferrer" aria-label="Abrir LinkedIn de Eric Matos Carvalho">
-            <img class="contact-icon" src="images/LinkedIn.png" alt="" aria-hidden="true" />
+            <img class="contact-icon" src="images/icon-linkedin-rpg.webp" alt="" aria-hidden="true" />
             <span>
               <small>LinkedIn</small>
               <strong>Eric Matos Carvalho</strong>
@@ -362,6 +370,7 @@
       const links = Array.from(document.querySelectorAll(".book-link"));
       const menuToggle = document.querySelector(".menu-toggle");
       const mainNav = document.querySelector(".main-nav");
+      const bookStage = document.querySelector(".book-stage");
 
       function closeMobileMenu() {
         if (!menuToggle || !mainNav) {
@@ -414,6 +423,7 @@
         });
 
         targetPage.classList.add("active");
+        if (bookStage) bookStage.style.minHeight = "";
         currentPage = targetPage;
         updateActiveLink(pageName);
       }
@@ -436,6 +446,14 @@
           return;
         }
 
+        // Em telas menores e para acessibilidade, troca instantânea, sem colapso da altura.
+        if (window.matchMedia("(max-width: 900px), (prefers-reduced-motion: reduce)").matches) {
+          showPageInstantly(pageName);
+          if (updateUrl) history.pushState(null, "", "#" + pageName);
+          window.scrollTo({ top: 0, behavior: "auto" });
+          return;
+        }
+
         isTurning = true;
 
         const currentIndex = pages.indexOf(currentPage);
@@ -451,6 +469,11 @@
         currentPage.classList.add("active", "turning-out", directionClass);
         nextPage.classList.add("active", "turning-in", directionClass);
 
+        // Estabiliza a altura enquanto as duas páginas estão em posição absoluta.
+        if (bookStage) {
+          const altura = Math.max(currentPage.scrollHeight, nextPage.scrollHeight);
+          bookStage.style.minHeight = altura + "px";
+        }
         updateActiveLink(pageName);
 
         window.scrollTo({ top: 0, behavior: "smooth" });
@@ -462,6 +485,7 @@
 
           currentPage = nextPage;
           isTurning = false;
+          if (bookStage) bookStage.style.minHeight = "";
 
           if (updateUrl) {
             history.pushState(null, "", "#" + pageName);
