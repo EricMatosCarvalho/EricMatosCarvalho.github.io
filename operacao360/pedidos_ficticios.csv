@@ -1,0 +1,13 @@
+﻿id,fornecedor,numero_documento,valor,data_recebimento,data_vencimento,data_pagamento,status_aprovacao
+P001,Alfa Papelaria,NF-101,340.00,2026-10-10,2026-10-24,2026-10-23,Aprovado
+P002,Mundo Tech,NF-102,1250.00,2026-10-12,2026-10-30,,Aprovado
+P003,Oficina das Ideias,NF-103,510.00,2026-10-15,2026-11-14,,Pendente
+P004,Alfa Papelaria,NF-104,190.00,2026-10-20,2026-11-08,,Aprovado
+P005,Tecno Sul,NF-105,700.00,2026-10-22,2026-11-12,,Aprovado
+P006,Delta Servicos,NF-106,2100.00,2026-10-27,2026-11-25,,Pendente
+P007,Alfa Papelaria,NF-101,340.00,2026-10-11,2026-10-24,,Aprovado
+P008,Mundo Tech,NF-108,130.00,2026-10-27,2026-11-03,2026-11-02,Aprovado
+P009,Atlas Pecas,NF-109,499.00,2026-10-28,2026-11-07,,Aprovado
+P010,Tecno Sul,NF-110,380.00,2026-10-31,2026-11-28,,Aprovado
+P011,Atlas Pecas,NF-111,600.00,2026-11-01,2026-11-19,2026-11-06,Aprovado
+P012,Tecno Sul,NF-110,380.00,2026-11-02,2026-11-28,,Aprovado

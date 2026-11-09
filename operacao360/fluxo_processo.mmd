@@ -1,0 +1,9 @@
+flowchart TD
+    A[Solicitacao de compra] --> B[Aprovacao]
+    B --> C[Recebimento]
+    C --> D[Documento fiscal]
+    D --> E{Dados conferem?}
+    E -- Sim --> F[Autorizar pagamento]
+    E -- Nao --> G[Revisar divergencia]
+    G --> D
+    F --> H[Pagar e registrar]

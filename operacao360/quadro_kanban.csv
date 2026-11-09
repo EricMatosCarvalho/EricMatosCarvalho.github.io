@@ -1,0 +1,7 @@
+id,tarefa,status,responsavel,criterio_de_pronto
+1,Mapear AS-IS,A fazer,Eric,Fluxo com responsabilidades
+2,Desenhar TO-BE,A fazer,Eric,Melhorias justificadas
+3,Executar script,Em andamento,Eric,Saida verificada
+4,Conferir indicadores,A fazer,Eric,Contagem conferida
+5,Escrever README,A fazer,Eric,Fontes e limites descritos
+6,Publicar estudo de caso,A fazer,Eric,Repositorio com evidencias
